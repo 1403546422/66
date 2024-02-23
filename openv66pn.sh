@@ -202,28 +202,16 @@ if [[ ! -e /etc/openvpn/server/server.conf ]]; then
 	done
 	echo
   
-#获得随机数返回值，shell函数里算出随机数后，更新该值
-function  random()
-{
-    min=$1
-    max=$2-$1
-    num=$(date  +%s+%N)
-    ((retnum=num%max+min))
- 
-}
 
-srandom=random
 
 	echo "Enter a name for the first client:"
-#随机设置名称
-	echo "默认随机名称$srandom"
+
 
 	read -t 3 -p "Name [client]: " unsanitized_client
 	# Allow a limited set of characters to avoid conflicts
-	
-	client=srandom
 
-	#client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
+
+	client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 	[[ -z "$client" ]] && client="client"
 	echo
 	echo "OpenVPN installation is ready to begin."
