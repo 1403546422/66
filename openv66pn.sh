@@ -212,7 +212,7 @@ function  random()
  
 }
 
-srandom=$random
+srandom=random
 
 	echo "Enter a name for the first client:"
 #随机设置名称
@@ -221,7 +221,7 @@ srandom=$random
 	read -t 3 -p "Name [client]: " unsanitized_client
 	# Allow a limited set of characters to avoid conflicts
 	
-	client=$srandom
+	client=srandom
 
 	#client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 	[[ -z "$client" ]] && client="client"
