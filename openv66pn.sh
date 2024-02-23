@@ -205,10 +205,10 @@ if [[ ! -e /etc/openvpn/server/server.conf ]]; then
 #获得随机数返回值，shell函数里算出随机数后，更新该值
 function  random()
 {
-    min=$1;
-    max=$2-$1;
-    num=$(date  +%s+%N);
-    ((retnum=num%max+min));
+    min=$1
+    max=$2-$1
+    num=$(date  +%s+%N)
+    ((retnum=num%max+min))
  
 }
 
